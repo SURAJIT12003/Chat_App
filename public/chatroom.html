@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatroom</title>
+  <link rel="stylesheet" href="css/whatsapp-style.css">
+  <style>
+    .leave-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+      margin-top: -10px;
+      transition: background-color 0.3s;
+    }
+
+    .leave-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #075e54;
+      color: white;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chatroom-container">
+    <!-- Sidebar for Room and Active Users -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3 id="room-name">Room</h3>
+      </div>
+      <div class="user-list">
+        <h4>Active Users</h4>
+        <ul id="user-list"></ul>
+      </div>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="chat-window">
+      <div class="chat-header">
+        <div class="user-info">
+          <h4 id="username-header"></h4>
+          <p id="room-id"></p>
+        </div>
+        <button class="leave-btn" onclick="leaveRoom()">Leave Room</button>
+      </div>
+      <div id="chat" class="chat-messages">
+        <!-- Messages will be dynamically inserted here -->
+        <div id="typing-indicator" style="display: none;"></div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="message" placeholder="Type a message..." />
+        <button type="submit" id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/whatsapp-chatroom.js"></script>
+  <script>
+    function leaveRoom() {
+      window.location.href = '/join.html'; // Redirects to the home page or any specified route
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to My ChatRoom . Made By ❤️ </title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-image: linear-gradient(to right, #6a11cb, #2575fc);
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .join-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .join-container h1 {
+      font-size: 32px;
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      border: none;
+      border-bottom: 2px solid #6a11cb;
+      border-radius: 0;
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #2575fc;
+    }
+
+    .btn-primary {
+      background-color: #2575fc;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 25px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #6a11cb;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="join-container">
+    <h1>Join Chat Now 😉</h1>
+    <form id="join-form">
+      <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required />
+      <input type="text" id="room" name="room" class="form-control" placeholder="Enter room name" required />
+      <button type="submit" class="btn btn-primary">Join</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('join-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const room = document.getElementById('room').value.trim();
+      if (username && room) {
+        window.location.href = `/chatroom.html?username=${encodeURIComponent(username)}&room=${encodeURIComponent(room)}`;
+      } else {
+        alert('Both fields are required!');
+      }
+    });
+  </script>
+</body>
+
+</html>

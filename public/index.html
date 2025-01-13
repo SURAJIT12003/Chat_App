@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatroom</title>
+  <link rel="stylesheet" href="css/whatsapp-style.css">
+</head>
+<body>
+  <div class="whatsapp-container">
+    <!-- Sidebar for rooms or user list -->
+    <div class="sidebar">
+      <header>
+        <h2>Chat Rooms</h2>
+      </header>
+      <ul id="room-list">
+        <!-- Dynamically populated -->
+      </ul>
+    </div>
+
+    <!-- Chat area -->
+    <div class="chat-area">
+      <header class="chat-header">
+        <h2 id="room-name">Room Name</h2>
+      </header>
+      <div id="chat" class="chat-messages">
+        <!-- Messages dynamically populated -->
+      </div>
+      <div class="chat-input">
+        <input id="message" type="text" placeholder="Type a message" />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/whatsapp-chatroom.js"></script>
+</body>
+</html>
